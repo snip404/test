@@ -38,3 +38,24 @@ Array
         )
 
 );*/
+
+$count = count ($x);
+$tmp = [];
+$a = &$tmp;
+
+for ($i = $count - 1; $i >= 0; $i--) {
+    $v = $x[$i];
+
+    if ($i == 0) {
+        $new_value = null;
+    } else {
+        $new_value = [];
+    }
+
+    $a[$v] = $new_value;
+    $a = &$a[$v];
+}
+
+$x = $tmp;
+unset ($tmp);
+print_r($x);
